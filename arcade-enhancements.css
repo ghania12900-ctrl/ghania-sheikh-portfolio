@@ -1,0 +1,19 @@
+/* Add this file after styles.css in index.html */
+.scroll-progress{position:fixed;z-index:30;top:0;left:0;height:3px;width:0;background:#fff;box-shadow:0 0 12px #fff}
+.hero h1{animation:title-arrive .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1>span{animation:glitch-in 1.2s .2s both}
+.game-card,.power,.social-grid a{transform-style:preserve-3d;will-change:transform}
+.game-card:hover h3{animation:tiny-glitch .22s steps(2) 2}
+.button-light:hover{animation:button-jump .28s ease}
+.pixel-cube{animation:float 3s ease-in-out infinite,cube-pulse 2.8s ease-in-out infinite}
+.status-dot{animation:status-pulse 1.6s ease-in-out infinite}
+.pixel-particles{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.pixel-spark{position:absolute;width:4px;height:4px;background:#fff;opacity:0;box-shadow:0 0 9px #fff;animation:spark-rise var(--duration,5s) linear forwards}
+@keyframes title-arrive{from{opacity:0;transform:translateY(25px);letter-spacing:-.13em}to{opacity:1;transform:translateY(0);letter-spacing:-.075em}}
+@keyframes glitch-in{0%{clip-path:inset(0 0 90% 0);transform:translateX(-9px)}25%{clip-path:inset(30% 0 40% 0);transform:translateX(7px)}50%{clip-path:inset(70% 0 5% 0);transform:translateX(-4px)}100%{clip-path:inset(0);transform:translateX(0)}}
+@keyframes tiny-glitch{0%{transform:translateX(0)}30%{transform:translateX(2px)}60%{transform:translateX(-2px)}100%{transform:translateX(0)}}
+@keyframes button-jump{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes status-pulse{50%{box-shadow:0 0 0 5px #ffffff16,0 0 14px #fff}}
+@keyframes cube-pulse{50%{text-shadow:0 0 18px #fff,7px 7px 0 #555}}
+@keyframes spark-rise{0%{opacity:0;transform:translateY(0) scale(.4) rotate(0)}15%{opacity:.7}85%{opacity:.4}100%{opacity:0;transform:translateY(-110vh) scale(1.2) rotate(180deg)}}
+@media(prefers-reduced-motion:reduce){.scroll-progress,.pixel-particles{display:none}}
