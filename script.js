@@ -1,11 +1,10 @@
 (() => {
-  const editButton=document.querySelector('#edit-toggle');
   const soundButton=document.querySelector('#sound-toggle');
   const menuButton=document.querySelector('.menu-toggle');
   const nav=document.querySelector('.site-header nav');
   const progress=document.querySelector('.scroll-progress');
   const particles=document.querySelector('.pixel-particles');
-  let editing=false,soundOn=false,audioContext=null;
+  let soundOn=false,audioContext=null;
 
   const sections=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
@@ -46,16 +45,6 @@
       });
     }catch(_){}
   }
-
-  editButton?.addEventListener('click',()=>{
-    editing=!editing;document.body.classList.toggle('editing',editing);
-    document.querySelectorAll('[data-editable]').forEach(el=>{
-      el.contentEditable=editing?'true':'false';el.spellcheck=editing;
-    });
-    editButton.textContent=editing?'✓ DONE EDITING':'✎ EDIT TEXT';
-    if(editing)document.querySelector('[data-editable]')?.focus();
-    playTone(editing?[660,880]:[660],.07);
-  });
 
   soundButton?.addEventListener('click',()=>{
     soundOn=!soundOn;soundButton.textContent=soundOn?'♫ SOUND ON':'♫ SOUND OFF';
